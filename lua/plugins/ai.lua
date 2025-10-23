@@ -217,7 +217,7 @@ return {
 
         strategies = {
           chat = {
-            adapter = "anthropic", -- Change to "openai", "anthropic", or "ollama"
+            adapter = "openai", -- Change to "openai", "anthropic", or "ollama"
             roles = {
               llm = "CodeCompanion",
               user = "You",
@@ -258,10 +258,10 @@ return {
             },
           },
           inline = {
-            adapter = "anthropic", -- Change to match your preference
+            adapter = "openai", -- Change to match your preference
           },
           agent = {
-            adapter = "anthropic",
+            adapter = "openai",
           },
         },
 

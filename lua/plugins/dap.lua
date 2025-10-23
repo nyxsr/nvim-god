@@ -5,6 +5,7 @@
   This configuration includes debuggers for:
   - Go (delve)
   - Rust (codelldb)
+  - Python (debugpy)
 
   SETUP INSTRUCTIONS:
 
@@ -14,6 +15,10 @@
 
   Rust (codelldb):
   - Mason will auto-install codelldb
+  - Works out of the box
+
+  Python (debugpy):
+  - Mason will auto-install debugpy
   - Works out of the box
 
   Keybindings:
@@ -53,7 +58,8 @@ return {
       "theHamsta/nvim-dap-virtual-text",
 
       -- Language-specific extensions
-      "leoluz/nvim-dap-go",    -- Go debugging helpers
+      "leoluz/nvim-dap-go",        -- Go debugging helpers
+      "mfussenegger/nvim-dap-python", -- Python debugging helpers
     },
     keys = {
       -- Breakpoints
@@ -258,6 +264,53 @@ return {
       }
 
       -- ======================================================================
+      -- PYTHON DEBUGGING CONFIGURATION (debugpy)
+      -- ======================================================================
+
+      -- nvim-dap-python provides better Python debugging setup
+      local dap_python = require("dap-python")
+
+      -- Use Mason-installed debugpy
+      dap_python.setup(vim.fn.stdpath("data") .. "/mason/packages/debugpy/venv/bin/python")
+
+      -- Additional Python configurations
+      table.insert(dap.configurations.python, {
+        type = "python",
+        request = "launch",
+        name = "Launch file with arguments",
+        program = "${file}",
+        args = function()
+          local args_string = vim.fn.input("Arguments: ")
+          return vim.split(args_string, " +")
+        end,
+        console = "integratedTerminal",
+      })
+
+      table.insert(dap.configurations.python, {
+        type = "python",
+        request = "launch",
+        name = "Debug Django",
+        program = "${workspaceFolder}/manage.py",
+        args = { "runserver" },
+        django = true,
+        console = "integratedTerminal",
+      })
+
+      table.insert(dap.configurations.python, {
+        type = "python",
+        request = "launch",
+        name = "Debug Flask",
+        module = "flask",
+        env = {
+          FLASK_APP = "app.py",
+          FLASK_DEBUG = "1",
+        },
+        args = { "run", "--no-debugger", "--no-reload" },
+        jinja = true,
+        console = "integratedTerminal",
+      })
+
+      -- ======================================================================
       -- DAP UI INTEGRATION
       -- ======================================================================
 
@@ -371,6 +424,7 @@ return {
       ensure_installed = {
         "codelldb", -- Rust, C, C++
         "delve",    -- Go
+        "debugpy",  -- Python
       },
       automatic_installation = true,
       handlers = {},
@@ -406,5 +460,14 @@ return {
     "leoluz/nvim-dap-go",
     dependencies = "mfussenegger/nvim-dap",
     ft = "go",
+  },
+
+  -- ============================================================================
+  -- PYTHON DAP HELPERS
+  -- ============================================================================
+  {
+    "mfussenegger/nvim-dap-python",
+    dependencies = "mfussenegger/nvim-dap",
+    ft = "python",
   },
 }
