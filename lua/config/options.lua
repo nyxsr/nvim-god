@@ -67,11 +67,11 @@ opt.sidescrolloff = 8
 -- Show whitespace characters
 opt.list = true
 opt.listchars = {
-  tab = "→ ",
-  trail = "·",
-  extends = "»",
-  precedes = "«",
-  nbsp = "␣",
+	tab = "→ ",
+	trail = "·",
+	extends = "»",
+	precedes = "«",
+	nbsp = "␣",
 }
 
 -- Enable 24-bit RGB color (required for modern themes)
@@ -179,14 +179,14 @@ opt.shortmess:append("I")
 
 -- Session options
 opt.sessionoptions = {
-  "buffers",
-  "curdir",
-  "tabpages",
-  "winsize",
-  "help",
-  "globals",
-  "skiprtp",
-  "folds",
+	"buffers",
+	"curdir",
+	"tabpages",
+	"winsize",
+	"help",
+	"globals",
+	"skiprtp",
+	"folds",
 }
 
 -- ============================================================================
@@ -195,9 +195,9 @@ opt.sessionoptions = {
 
 -- Set font for GUI clients (not needed for terminal Neovim)
 if vim.g.neovide then
-  vim.o.guifont = "FiraCode Nerd Font:h12"
-  -- Neovide-specific settings
-  vim.g.neovide_cursor_animation_length = 0.03
-  vim.g.neovide_cursor_trail_size = 0.5
-  vim.g.neovide_remember_window_size = true
+	vim.o.guifont = "Fira Code IScript"
+	-- Neovide-specific settings
+	vim.g.neovide_cursor_animation_length = 0.03
+	vim.g.neovide_cursor_trail_size = 0.5
+	vim.g.neovide_remember_window_size = true
 end

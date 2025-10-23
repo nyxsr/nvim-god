@@ -414,16 +414,16 @@ return {
       { "<S-Tab>", "<cmd>BufferLineCyclePrev<cr>", desc = "Previous buffer tab", mode = "n" },
 
       -- Jump to specific buffer by number
-      { "<A-1>", "<cmd>BufferLineGoToBuffer 1<cr>", desc = "Go to buffer 1" },
-      { "<A-2>", "<cmd>BufferLineGoToBuffer 2<cr>", desc = "Go to buffer 2" },
-      { "<A-3>", "<cmd>BufferLineGoToBuffer 3<cr>", desc = "Go to buffer 3" },
-      { "<A-4>", "<cmd>BufferLineGoToBuffer 4<cr>", desc = "Go to buffer 4" },
-      { "<A-5>", "<cmd>BufferLineGoToBuffer 5<cr>", desc = "Go to buffer 5" },
-      { "<A-6>", "<cmd>BufferLineGoToBuffer 6<cr>", desc = "Go to buffer 6" },
-      { "<A-7>", "<cmd>BufferLineGoToBuffer 7<cr>", desc = "Go to buffer 7" },
-      { "<A-8>", "<cmd>BufferLineGoToBuffer 8<cr>", desc = "Go to buffer 8" },
-      { "<A-9>", "<cmd>BufferLineGoToBuffer 9<cr>", desc = "Go to buffer 9" },
-      { "<A-$>", "<cmd>BufferLineGoToBuffer -1<cr>", desc = "Go to last buffer" },
+      { "<C-1>", "<cmd>BufferLineGoToBuffer 1<cr>", desc = "Go to buffer 1" },
+      { "<C-2>", "<cmd>BufferLineGoToBuffer 2<cr>", desc = "Go to buffer 2" },
+      { "<C-3>", "<cmd>BufferLineGoToBuffer 3<cr>", desc = "Go to buffer 3" },
+      { "<C-4>", "<cmd>BufferLineGoToBuffer 4<cr>", desc = "Go to buffer 4" },
+      { "<C-5>", "<cmd>BufferLineGoToBuffer 5<cr>", desc = "Go to buffer 5" },
+      { "<C-6>", "<cmd>BufferLineGoToBuffer 6<cr>", desc = "Go to buffer 6" },
+      { "<C-7>", "<cmd>BufferLineGoToBuffer 7<cr>", desc = "Go to buffer 7" },
+      { "<C-8>", "<cmd>BufferLineGoToBuffer 8<cr>", desc = "Go to buffer 8" },
+      { "<C-9>", "<cmd>BufferLineGoToBuffer 9<cr>", desc = "Go to buffer 9" },
+      { "<C-0>", "<cmd>BufferLineGoToBuffer -1<cr>", desc = "Go to last buffer" },
 
       -- Move buffers
       { "<A-<>", "<cmd>BufferLineMovePrev<cr>", desc = "Move buffer left" },
